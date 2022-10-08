@@ -4,3 +4,9 @@
     entry: team-author-name
     language: python
     stages: [commit, push, manual]
+-   id: team-team-names
+    name: check for team team names
+    description: team names be valid
+    entry: team-team-names
+    language: python
+    stages: [commit, push, manual]
