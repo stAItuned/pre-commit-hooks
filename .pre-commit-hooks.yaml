@@ -1,6 +1,6 @@
--# .pre-commit-hooks.yaml
-- id: some-id
-  name: some-name
-  description: some description
-  entry: authors
-  language: python
+-   id: team-author-name
+    name: check for team author name
+    description: author name must be camel case
+    entry: team-author-name
+    language: python
+    stages: [commit, push, manual]
