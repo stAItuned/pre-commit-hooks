@@ -148,3 +148,12 @@
     types: [markdown]
     language: python
     stages: [commit, push, manual]
+
+-   id: article-date
+    name: check article date
+    description: article date must not be set unless it is published
+    entry: article-date
+    files: '^articles/.*/.*md$'
+    types: [markdown]
+    language: python
+    stages: [commit, push, manual]

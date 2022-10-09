@@ -3,7 +3,7 @@ from .utils import get_frontmatter, print_error
 
 NON_EMPTY_KEYS = ["title", "author", "topics",
                   "meta", "target", "language", "cover", "language"]
-EMPTY_KEYS = ["date"]
+EMPTY_KEYS = []
 
 
 def main():
