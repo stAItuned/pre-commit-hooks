@@ -1,3 +1,10 @@
+-   id: team-card-validate
+    name: check for obligatory keys in team card
+    description: checks required attributes to be non-empty
+    entry: team-card-validate
+    language: python
+    stages: [commit, push, manual]
+    files: '^team/.*/.*\.md$'
 -   id: team-author-name
     name: check for team author name
     description: author name must be camel case
@@ -16,6 +23,20 @@
     name: check for team linkedin url
     description: linkedin url must start with 'https://www.linkedin.com/in/'
     entry: team-linkedin-url
+    files: '^team/.*/.*\.md$'
+    language: python
+    stages: [commit, push, manual]
+-   id: team-mail-validate
+    name: check for mail 
+    description: email must be valid
+    entry: team-mail-validate
+    files: '^team/.*/.*\.md$'
+    language: python
+    stages: [commit, push, manual]
+-   id: team-description-length
+    name: check for team member description
+    description: description must be less than 200 chars
+    entry: team-description-length
     files: '^team/.*/.*\.md$'
     language: python
     stages: [commit, push, manual]
