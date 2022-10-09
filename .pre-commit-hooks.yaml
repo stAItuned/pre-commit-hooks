@@ -48,3 +48,76 @@
     types: [image]
     language: python
     stages: [commit, push, manual]
+
+-   id: article-author
+    name: check article author exists
+    description: Article author must exist
+    entry: article-author
+    files: '^articles/.*/.*md$'
+    types: [markdown]
+    language: python
+    stages: [commit, push, manual]
+    
+-   id: article-validate
+    name: check article attributes 
+    description: article attributes required and non
+    entry: article-validate
+    files: '^articles/.*/.*md$'
+    types: [markdown]
+    language: python
+    stages: [commit, push, manual]
+
+-   id: article-topics
+    name: check article topics 
+    description: article topics must be an array with at least a topic
+    entry: article-topics
+    files: '^articles/.*/.*md$'
+    types: [markdown]
+    language: python
+    stages: [commit, push, manual]
+
+-   id: article-title
+    name: check article title length 
+    description: article title length must be less than 55 chars
+    entry: article-title
+    files: '^articles/.*/.*md$'
+    types: [markdown]
+    language: python
+    stages: [commit, push, manual]
+
+-   id: article-target
+    name: check article target value 
+    description: article target value must be Newbie | Midway | Expert
+    entry: article-target
+    files: '^articles/.*/.*md$'
+    types: [markdown]
+    language: python
+    stages: [commit, push, manual]
+
+
+-   id: article-meta
+    name: check article meta length 
+    description: article meta length must not exceed 160 chars
+    entry: article-meta
+    files: '^articles/.*/.*md$'
+    types: [markdown]
+    language: python
+    stages: [commit, push, manual]
+
+-   id: article-cover
+    name: check article cover exists 
+    description: article cover must be a valid image inside the article folder
+    entry: article-cover
+    files: '^articles/.*/.*md$'
+    types: [markdown]
+    language: python
+    stages: [commit, push, manual]
+
+-   id: article-language
+    name: check article language 
+    description: article language must be Italian or English
+    entry: article-language
+    files: '^articles/.*/.*md$'
+    types: [markdown]
+    language: python
+    stages: [commit, push, manual]
