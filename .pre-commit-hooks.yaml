@@ -65,7 +65,7 @@
     files: '^articles/.*/.*md$'
     types: [markdown]
     language: python
-    stages: [commit, push, manual]
+    stages: [commit, push]
 
 -   id: article-topics
     name: check article topics 
