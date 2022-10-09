@@ -1,5 +1,5 @@
 import sys
-from .utils import get_frontmatter
+from .utils import get_frontmatter, print_error
 
 
 def main():
@@ -14,6 +14,6 @@ def main():
         if team not in VALID_TEAMS:
             mismatch.append(team)
     if(len(mismatch) > 0):
-        print(f"Invalid team name(s): {','.join(mismatch)}")
+        print_error(f"Invalid team name(s): {','.join(mismatch)}")
         sys.exit(1)
     sys.exit(0) // ok
