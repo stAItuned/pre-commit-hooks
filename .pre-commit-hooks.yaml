@@ -121,3 +121,30 @@
     types: [markdown]
     language: python
     stages: [commit, push, manual]
+
+-   id: article-length
+    name: check article length
+    description: article length must be at least 1500 chars
+    entry: article-length
+    files: '^articles/.*/.*md$'
+    types: [markdown]
+    language: python
+    stages: [commit, push, manual]
+
+-   id: article-images
+    name: check article images 
+    description: article images must be relative referenced or external
+    entry: article-images
+    files: '^articles/.*/.*md$'
+    types: [markdown]
+    language: python
+    stages: [commit, push, manual]
+
+-   id: article-equations
+    name: check article equation
+    description: article large equations must be on their own line ($$\nEQ\n$$)
+    entry: article-equations
+    files: '^articles/.*/.*md$'
+    types: [markdown]
+    language: python
+    stages: [commit, push, manual]
