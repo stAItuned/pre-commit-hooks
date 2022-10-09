@@ -44,6 +44,7 @@
     name: check team card is a square
     description: team propic must be a square
     entry: team-card-propic
-    files: '^team/.*/propic.jpe?g$'
+    files: '^team/.*/.*$'
+    types: [image]
     language: python
     stages: [commit, push, manual]
