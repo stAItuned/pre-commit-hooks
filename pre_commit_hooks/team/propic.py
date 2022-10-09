@@ -4,8 +4,8 @@ import sys
 
 
 def main():
-    if filename != "propic.jpg":
-        print_error("Propic filename must be propic.jpg")
+    if not filename.endswith("propic.jpg"):
+        print_error(f"Propic filename must be propic.jpg")
         return sys.exit(1)
     img = imageio.imread(filepath)
     if img.shape[0] != img.shape[1]:
