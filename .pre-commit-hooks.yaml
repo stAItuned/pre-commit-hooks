@@ -40,3 +40,10 @@
     files: '^team/.*/.*\.md$'
     language: python
     stages: [commit, push, manual]
+-   id: team-card-propic
+    name: check team card is a square
+    description: team propic must be a square
+    entry: team-card-propic
+    files: '^team/.*/propic.jpe?g$'
+    language: python
+    stages: [commit, push, manual]
