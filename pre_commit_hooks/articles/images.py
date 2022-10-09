@@ -20,10 +20,9 @@ def main():
         # otherwise it must be local
         basepath = path.dirname(filepath)
         imgpath = path.join(basepath, url)
-        print(imgpath)
         if not path.isfile(imgpath):
             malformed_urls.append(url)
     if len(malformed_urls) > 0:
         print_error(
             f"The following images are not valid: {malformed_urls} ", True)
-    sys.exit(1)
+    sys.exit(0)
