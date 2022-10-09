@@ -18,9 +18,12 @@ def main():
         if parsed.netloc:  # if it's an external url consider it valid
             continue
         # otherwise it must be local
-        if path.dirname(path.abspath(url)) != path.dirname(filepath):
+        basepath = path.dirname(filepath)
+        imgpath = path.join(basepath, url)
+        print(imgpath)
+        if not path.isfile(imgpath):
             malformed_urls.append(url)
     if len(malformed_urls) > 0:
         print_error(
             f"The following images are not valid: {malformed_urls} ", True)
-    sys.exit(0)
+    sys.exit(1)
