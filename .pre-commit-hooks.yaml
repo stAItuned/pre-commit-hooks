@@ -4,9 +4,18 @@
     entry: team-author-name
     language: python
     stages: [commit, push, manual]
+    files: '^team/.*/.*\.md$'
 -   id: team-team-names
     name: check for team team names
     description: team names be valid
     entry: team-team-names
+    files: '^team/.*/.*\.md$'
+    language: python
+    stages: [commit, push, manual]
+-   id: team-linkedin-url
+    name: check for team linkedin url
+    description: linkedin url must start with 'https://www.linkedin.com/in/'
+    entry: team-linkedin-url
+    files: '^team/.*/.*\.md$'
     language: python
     stages: [commit, push, manual]
