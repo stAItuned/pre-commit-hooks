@@ -14,6 +14,11 @@ def get_frontmatter():
 
 
 def print_error(msg: str, exit: bool = False):
-    print(f"'{path.basename(path.dirname(filename))}'\t{msg}")
+    print(f"'{filepath}'\t{msg}")
     if exit:
         sys.exit(1)
+
+def ok(msg: str = "OK", exit: bool = True):
+    print(f"{msg}\t{filepath}")
+    if exit:
+        sys.exit(0)

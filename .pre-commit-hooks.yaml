@@ -62,10 +62,9 @@
     name: check article attributes 
     description: article attributes required and non
     entry: article-validate
-    files: '^articles/.*/.*md$'
+    files: '^articles/.*/'
     types: [markdown]
     language: python
-    stages: [commit, push]
 
 -   id: article-topics
     name: check article topics 
@@ -144,7 +143,7 @@
     name: check article equation
     description: article large equations must be on their own line ($$\nEQ\n$$)
     entry: article-equations
-    files: '^articles/.*/.*md$'
+    files: '^articles/.*/.*'
     types: [markdown]
     language: python
     stages: [commit, push, manual]

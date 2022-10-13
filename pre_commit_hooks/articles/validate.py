@@ -1,5 +1,5 @@
 import sys
-from .utils import get_frontmatter, print_error
+from .utils import get_frontmatter, print_error, ok
 
 NON_EMPTY_KEYS = ["title", "author", "topics",
                   "meta", "target", "language", "cover", "language"]
@@ -18,7 +18,7 @@ def main():
         if post.get(key, "") != "":
             non_empy.append(key)
     if len(empty_keys) == 0 and len(non_empy) == 0:
-        sys.exit(0)
+        ok()
 
     if len(empty_keys) > 0:
         print_error(
