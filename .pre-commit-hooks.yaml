@@ -3,60 +3,58 @@
     description: checks required attributes to be non-empty
     entry: team-card-validate
     language: python
-    stages: [commit, push, manual]
-    files: '^team/.*/.*\.md$'
+    files: 'team/.*/'
+    types: [markdown]
 -   id: team-author-name
     name: check for team author name
     description: author name must be camel case
     entry: team-author-name
     language: python
-    stages: [commit, push, manual]
-    files: '^team/.*/.*\.md$'
+    files: 'team/.*/'
+    types: [markdown]
 -   id: team-team-names
     name: check for team team names
     description: team names be valid
     entry: team-team-names
-    files: '^team/.*/.*\.md$'
+    files: 'team/.*/'
+    types: [markdown]
     language: python
-    stages: [commit, push, manual]
 -   id: team-linkedin-url
     name: check for team linkedin url
     description: linkedin url must start with 'https://www.linkedin.com/in/'
     entry: team-linkedin-url
-    files: '^team/.*/.*\.md$'
+    files: 'team/.*/'
+    types: [markdown]
     language: python
-    stages: [commit, push, manual]
 -   id: team-mail-validate
     name: check for mail 
     description: email must be valid
     entry: team-mail-validate
-    files: '^team/.*/.*\.md$'
     language: python
-    stages: [commit, push, manual]
+    files: 'team/.*/'
+    types: [markdown]
 -   id: team-description-length
     name: check for team member description
     description: description must be less than 200 chars
     entry: team-description-length
-    files: '^team/.*/.*\.md$'
+    files: 'team/.*/'
+    types: [markdown]
     language: python
-    stages: [commit, push, manual]
 -   id: team-card-propic
     name: check team card is a square
     description: team propic must be a square
     entry: team-card-propic
-    files: '^team/.*/.*$'
+    files: 'team/.*/'
     types: [image]
     language: python
-    stages: [commit, push, manual]
 
 -   id: article-author
     name: check article author exists
     description: Article author must exist
     entry: article-author
-    files: '^articles/.*/.*md$'
+    files: 'articles/.*/'
     types: [markdown]
     language: python
-    stages: [commit, push, manual]
     
 -   id: article-validate
     name: check article attributes 
@@ -70,89 +68,79 @@
     name: check article topics 
     description: article topics must be an array with at least a topic
     entry: article-topics
-    files: '^articles/.*/.*md$'
+    files: '^articles/.*/'
     types: [markdown]
     language: python
-    stages: [commit, push, manual]
 
 -   id: article-title
     name: check article title length 
     description: article title length must be less than 55 chars
     entry: article-title
-    files: '^articles/.*/.*md$'
+    files: 'articles/.*/'
     types: [markdown]
     language: python
-    stages: [commit, push, manual]
 
 -   id: article-target
     name: check article target value 
     description: article target value must be Newbie | Midway | Expert
     entry: article-target
-    files: '^articles/.*/.*md$'
+    files: 'articles/.*/'
     types: [markdown]
     language: python
-    stages: [commit, push, manual]
 
 
 -   id: article-meta
     name: check article meta length 
     description: article meta length must not exceed 160 chars
     entry: article-meta
-    files: '^articles/.*/.*md$'
+    files: 'articles/.*/'
     types: [markdown]
     language: python
-    stages: [commit, push, manual]
 
 -   id: article-cover
     name: check article cover exists 
     description: article cover must be a valid image inside the article folder
     entry: article-cover
-    files: '^articles/.*/.*md$'
+    files: 'articles/.*/'
     types: [markdown]
     language: python
-    stages: [commit, push, manual]
 
 -   id: article-language
     name: check article language 
     description: article language must be Italian or English
     entry: article-language
-    files: '^articles/.*/.*md$'
+    files: 'articles/.*/'
     types: [markdown]
     language: python
-    stages: [commit, push, manual]
 
 -   id: article-length
     name: check article length
     description: article length must be at least 1500 chars
     entry: article-length
-    files: '^articles/.*/.*md$'
+    files: 'articles/.*/'
     types: [markdown]
     language: python
-    stages: [commit, push, manual]
 
 -   id: article-images
     name: check article images 
     description: article images must be relative referenced or external
     entry: article-images
-    files: '^articles/.*/.*md$'
+    files: 'articles/.*/'
     types: [markdown]
     language: python
-    stages: [commit, push, manual]
 
 -   id: article-equations
     name: check article equation
     description: article large equations must be on their own line ($$\nEQ\n$$)
     entry: article-equations
-    files: '^articles/.*/.*'
+    files: 'articles/.*/'
     types: [markdown]
     language: python
-    stages: [commit, push, manual]
 
 -   id: article-date
     name: check article date
     description: article date must not be set unless it is published
     entry: article-date
-    files: '^articles/.*/.*md$'
+    files: 'articles/.*/'
     types: [markdown]
     language: python
-    stages: [commit, push, manual]
