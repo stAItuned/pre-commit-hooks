@@ -1,5 +1,5 @@
 import sys
-from .utils import get_frontmatter, print_error
+from .utils import get_frontmatter, ok, print_error
 
 VALID_TARGETS = ["Newbie", "Midway", "Expert"]
 
@@ -9,4 +9,4 @@ def main():
     if not target in VALID_TARGETS:
         print_error(f"Target not valid, must be one of the following: {VALID_TARGETS}")
         return sys.exit(1)
-    sys.exit(0)
+    ok()

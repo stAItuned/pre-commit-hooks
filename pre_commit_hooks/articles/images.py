@@ -1,6 +1,6 @@
 import sys
 import re
-from .utils import get_frontmatter, print_error, filepath
+from .utils import get_frontmatter, ok, print_error, filepath
 from urllib.parse import urlparse
 from os import path
 # ![Rete Generativa Avversaria](./Untitled.png)
@@ -25,4 +25,4 @@ def main():
     if len(malformed_urls) > 0:
         print_error(
             f"The following images are not valid: {malformed_urls} ", True)
-    sys.exit(0)
+    ok()

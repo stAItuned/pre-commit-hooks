@@ -1,5 +1,5 @@
 import sys, re
-from .utils import get_frontmatter, print_error
+from .utils import get_frontmatter, ok, print_error
 from urllib.parse import urlparse
 # ![Rete Generativa Avversaria](./Untitled.png)
 
@@ -16,4 +16,4 @@ def main():
             malformed_eqs.append((eq.group(0), eq.span()))
     if len(malformed_eqs) > 0:
         print_error(f"The following equations are not valid: {malformed_eqs} ", True)
-    sys.exit(0)
+    ok()

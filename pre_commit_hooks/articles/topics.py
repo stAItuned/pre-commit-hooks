@@ -1,5 +1,5 @@
 import sys
-from .utils import get_frontmatter, print_error
+from .utils import get_frontmatter, ok, print_error
 
 
 def main():
@@ -9,4 +9,4 @@ def main():
         print_error(
             f"Topics must be an array with at least an element. ({topics} doesn't match the requirements)")
         return sys.exit(1)
-    sys.exit(0)
+    ok()

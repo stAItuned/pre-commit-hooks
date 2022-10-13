@@ -1,5 +1,5 @@
 import sys
-from .utils import get_frontmatter, print_error, filepath
+from .utils import get_frontmatter, ok, print_error, filepath
 from datetime import date
 from os import path
 import requests
@@ -18,4 +18,4 @@ def main():
     if(slug not in resp.text):
         print_error(
             f"Date must not be set if article is not published", exit=True)
-    sys.exit(0)
+    ok()

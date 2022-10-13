@@ -1,5 +1,5 @@
 import sys
-from .utils import get_frontmatter, print_error, filepath
+from .utils import get_frontmatter, ok, print_error, filepath
 import glob
 from os import path
 import frontmatter
@@ -24,4 +24,4 @@ def main():
         print_error(
             f"Author must exists, {author} doesn't. (List of valid authors: {sorted(author_names)})")
         return sys.exit(1)
-    sys.exit(0)
+    ok()
