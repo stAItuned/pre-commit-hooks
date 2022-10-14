@@ -1,5 +1,5 @@
 import sys
-from .utils import get_frontmatter, ok, print_error
+from ..utils import get_frontmatter, ok, print_error
 
 META_MAX_LEN = 160
 

@@ -1,5 +1,5 @@
 import sys
-from .utils import get_frontmatter, ok, print_error
+from ..utils import get_frontmatter, ok, print_error
 
 CONTENT_LENGTH = 1500
 

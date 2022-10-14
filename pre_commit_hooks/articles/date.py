@@ -1,5 +1,5 @@
 import sys
-from .utils import get_frontmatter, ok, print_error, filepath
+from ..utils import get_frontmatter, ok, print_error, filepath
 from datetime import date
 from os import path
 import requests

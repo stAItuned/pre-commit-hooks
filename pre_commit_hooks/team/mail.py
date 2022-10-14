@@ -1,6 +1,6 @@
 import sys
 import re
-from .utils import get_frontmatter, ok, print_error
+from ..utils import get_frontmatter, ok, print_error
 
 mail_pattern = r"([A-Za-z0-9]+[.-_\+])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+"
 

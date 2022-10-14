@@ -1,6 +1,6 @@
 import sys
 import re
-from .utils import get_frontmatter, ok, print_error, filepath
+from ..utils import get_frontmatter, ok, print_error, filepath
 from urllib.parse import urlparse
 from os import path
 # ![Rete Generativa Avversaria](./Untitled.png)

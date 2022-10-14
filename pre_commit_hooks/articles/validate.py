@@ -1,5 +1,5 @@
 import sys
-from .utils import get_frontmatter, print_error, ok
+from ..utils import get_frontmatter, print_error, ok
 
 NON_EMPTY_KEYS = ["title", "author", "topics",
                   "meta", "target", "language", "cover", "language"]

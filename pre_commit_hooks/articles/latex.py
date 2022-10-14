@@ -1,5 +1,5 @@
 import sys, re
-from .utils import get_frontmatter, ok, print_error
+from ..utils import get_frontmatter, ok, print_error
 from urllib.parse import urlparse
 # ![Rete Generativa Avversaria](./Untitled.png)
 

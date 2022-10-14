@@ -1,4 +1,4 @@
-from .utils import filepath, ok, print_error, filename
+from ..utils import filepath, ok, print_error, filename
 import imageio
 import sys
 

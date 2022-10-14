@@ -1,6 +1,6 @@
 from genericpath import isfile
 import sys
-from .utils import get_frontmatter, ok, print_error, filepath
+from ..utils import get_frontmatter, ok, print_error, filepath
 from os import path
 from identify.identify import tags_from_filename
 
