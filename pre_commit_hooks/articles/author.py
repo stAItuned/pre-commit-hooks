@@ -6,13 +6,18 @@ import frontmatter
 
 
 def get_all_authors() -> list[str]:
-    team_path = path.abspath(path.join(path.dirname(filepath), "..", "..", "team"))
-    authors_filename = [path.join(team_path, a) for a in glob.glob("*/*.md", root_dir=team_path)]
+    team_path = path.abspath(
+        path.join(path.dirname(filepath), "..", "..", "team"))
+    authors_filename = [path.join(team_path, a)
+                        for a in glob.glob("*/*.md", root_dir=team_path)]
     authors_names = []
     for fn in authors_filename:
-        with open(fn, "r") as f:
-            p = frontmatter.loads(f.read())
-            authors_names.append(p.get("name"))
+        try:
+            with open(fn, "r") as f:
+                p = frontmatter.loads(f.read())
+                authors_names.append(p.get("name"))
+        except:
+            pass
     return authors_names
 
 
