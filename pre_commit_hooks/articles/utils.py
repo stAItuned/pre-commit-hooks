@@ -17,12 +17,12 @@ def get_frontmatter():
 
 
 def print_error(msg: str, exit: bool = False):
-    print(f"{path.relpath(filepath)}... {msg}")
+    print(f"'{path.relpath(filepath)}'... {msg}")
     if exit:
         sys.exit(1)
 
 
 def ok(msg: str = "OK", exit: bool = True):
-    print(f"{path.relpath(filepath)}... {msg}")
+    print(f"'{path.relpath(filepath)}'... {msg}")
     if exit:
         sys.exit(0)
