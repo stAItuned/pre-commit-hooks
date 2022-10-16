@@ -60,7 +60,7 @@
     name: check article attributes 
     description: article attributes required and non
     entry: article-validate
-    files: '^articles/.*/'
+    files: 'articles/.*/'
     types: [markdown]
     language: python
 
@@ -68,7 +68,7 @@
     name: check article topics 
     description: article topics must be an array with at least a topic
     entry: article-topics
-    files: '^articles/.*/'
+    files: 'articles/.*/'
     types: [markdown]
     language: python
 
