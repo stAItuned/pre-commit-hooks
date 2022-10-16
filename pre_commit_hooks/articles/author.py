@@ -1,4 +1,3 @@
-import sys
 from ..utils import get_frontmatter, ok, print_error, filepath
 import glob
 from os import path
@@ -26,7 +25,6 @@ def main():
     author: str = post.get("author", "")
     author_names = get_all_authors()
     if author not in author_names:
-        print_error(
-            f"Author must exists, {author} doesn't. (List of valid authors: {sorted(author_names)})")
-        return sys.exit(1)
+        return print_error(
+            f"Author must exists, {author} doesn't. (List of valid authors: {sorted(author_names)})", True)
     ok()

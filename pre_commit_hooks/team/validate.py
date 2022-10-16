@@ -1,4 +1,3 @@
-import sys
 from ..utils import get_frontmatter, ok, print_error
 
 NON_EMPTY_KEYS = ["name", "team", "title", "linkedin", "email", "description"]

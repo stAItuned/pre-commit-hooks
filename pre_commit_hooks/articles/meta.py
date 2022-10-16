@@ -7,6 +7,5 @@ def main():
     post = get_frontmatter()
     meta: str = post.get("meta", "")
     if len(meta) > META_MAX_LEN:
-        print_error(f"Meta length too long, max {META_MAX_LEN} chars")
-        return sys.exit(1)
+        return print_error(f"Meta too long, {len(meta)}/{META_MAX_LEN} chars", True)
     ok()

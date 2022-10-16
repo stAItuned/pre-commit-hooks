@@ -1,4 +1,3 @@
-import sys
 import re
 from ..utils import get_frontmatter, ok, print_error
 
@@ -9,5 +8,5 @@ def main():
     post = get_frontmatter()
     mail: str = post.get("email", "")
     if not re.fullmatch(mail_pattern, mail):
-        print_error("Mail must be valid", True)
+        return print_error("Mail must be valid", True)
     ok()

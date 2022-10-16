@@ -1,4 +1,3 @@
-import sys
 from ..utils import get_frontmatter, ok, print_error
 
 
@@ -7,8 +6,7 @@ def main():
     post = get_frontmatter()
     teams: list[str] = post.get("team", None)
     if(teams is None or not isinstance(teams, list) or len(teams) == 0):
-        print("team must be a non-empty array")
-        sys.exit(1)
+        return print_error("Team must be a non-empty array", True)
     mismatch = []
     for team in teams:
         if team not in VALID_TEAMS:

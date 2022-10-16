@@ -3,7 +3,6 @@ import re
 from ..utils import get_frontmatter, ok, print_error, filepath
 from urllib.parse import urlparse
 from os import path
-# ![Rete Generativa Avversaria](./Untitled.png)
 
 img_pattern = r"!\[.*\]\((.*)\)"
 
@@ -23,6 +22,6 @@ def main():
         if not path.isfile(imgpath):
             malformed_urls.append(url)
     if len(malformed_urls) > 0:
-        print_error(
+        return print_error(
             f"The following images are not valid: {malformed_urls} ", True)
     ok()

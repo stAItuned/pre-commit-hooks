@@ -1,4 +1,3 @@
-import sys
 from ..utils import get_frontmatter, print_error, ok
 
 NON_EMPTY_KEYS = ["title", "author", "topics",
@@ -19,11 +18,9 @@ def main():
             non_empy.append(key)
     if len(empty_keys) == 0 and len(non_empy) == 0:
         ok()
-
+    error_msg = ""
     if len(empty_keys) > 0:
-        print_error(
-            f"The following attributes are required: {', '.join(empty_keys)}")
+        error_msg += f"The following attributes are required: {', '.join(empty_keys)}\n"
     if len(non_empy) > 0:
-        print_error(
-            f"The following attributes are required to be empty: {', '.join(non_empy)}")
-    return sys.exit(1)
+        error_msg += f"The following attributes are required to be empty: {', '.join(non_empy)}\n"
+    return print_error(error_msg, True)

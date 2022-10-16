@@ -1,7 +1,5 @@
-import sys, re
+import re
 from ..utils import get_frontmatter, ok, print_error
-from urllib.parse import urlparse
-# ![Rete Generativa Avversaria](./Untitled.png)
 
 eq_pattern = r"(\$+)(?:(?!\1)[\s\S])*\1"
 
@@ -15,5 +13,5 @@ def main():
         if not (equation.startswith("$$\n") and re.search(r"\n[ \t]*\$+$", equation)):
             malformed_eqs.append((eq.group(0), eq.span()))
     if len(malformed_eqs) > 0:
-        print_error(f"The following equations are not valid: {malformed_eqs} ", True)
+        return print_error(f"The following equations are not valid: {malformed_eqs} ", True)
     ok()
