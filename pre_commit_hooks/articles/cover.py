@@ -10,9 +10,9 @@ def main():
     post = get_frontmatter()
     cover: str = post.get("cover", "")
     cover_path = path.join(path.dirname(filepath), cover)
-    if(urlparse(cover_path).netloc):
+    if(urlparse(cover).netloc):
         return ok()
     if "image" not in tags_from_filename(cover_path) or not path.isfile(cover_path):
-        print_error(f"Cover not valid, must be a valid image inside {path.dirname(filepath)} folder")
+        print_error(f"Cover not valid, must be a valid image inside {path.dirname(path.relpath(filepath))} folder")
         return sys.exit(1)
     ok()
