@@ -1,4 +1,4 @@
-from ..utils import get_frontmatter, ok, print_error, filepath
+from ..utils import Entry, get_frontmatter, ok, print_error, filepaths
 import glob
 from os import path
 import frontmatter
@@ -6,7 +6,7 @@ import frontmatter
 
 def get_all_authors() -> list[str]:
     team_path = path.abspath(
-        path.join(path.dirname(filepath), "..", "..", "team"))
+        path.join(path.dirname(filepaths[0]), "..", "..", "team"))
     authors_filename = [path.join(team_path, a)
                         for a in glob.glob("*/*.md", root_dir=team_path)]
     authors_names = []
@@ -20,11 +20,19 @@ def get_all_authors() -> list[str]:
     return authors_names
 
 
-def main():
-    post = get_frontmatter()
+author_names = get_all_authors()
+
+
+def single_entry(entry: Entry):
+    post = entry.post
     author: str = post.get("author", "")
-    author_names = get_all_authors()
     if author not in author_names:
-        return print_error(
-            f"Author must exists, {author} doesn't. (List of valid authors: {sorted(author_names)})", True)
-    ok()
+        return print_error(entry,
+                           f"Author must exists, {author} doesn't. (List of valid authors: {sorted(author_names)})", True)
+    ok(entry)
+
+
+def main():
+    for entry in get_frontmatter():
+        single_entry(entry)
+    return 0

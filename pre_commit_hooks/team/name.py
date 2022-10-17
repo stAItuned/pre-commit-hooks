@@ -1,12 +1,19 @@
-from ..utils import get_frontmatter, ok, print_error, rewrite_frontmatter_property
+from ..utils import Entry, get_frontmatter, ok, print_error, rewrite_frontmatter_property
 
 ERROR_MSG = "Name must be camel-case"
 
-def main():
-    post = get_frontmatter()
+
+def single_entry(entry: Entry):
+    post = entry.post
     name: str = post.get("name", "no")
     camel = " ".join([a.capitalize() for a in name.split(" ")])
-    if name != camel: 
-        rewrite_frontmatter_property(post, "name", camel)
-        return print_error(f"(AUTOFIXED) {ERROR_MSG}", True)
-    return ok()
+    if name != camel:
+        rewrite_frontmatter_property(entry, "name", camel)
+        return print_error(entry, f"(AUTOFIXED) {ERROR_MSG}", True)
+    return ok(entry)
+
+
+def main():
+    for entry in get_frontmatter():
+        single_entry(entry)
+    return 0

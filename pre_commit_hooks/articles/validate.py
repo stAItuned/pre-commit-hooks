@@ -1,12 +1,12 @@
-from ..utils import get_frontmatter, print_error, ok
+from ..utils import Entry, get_frontmatter, print_error, ok
 
 NON_EMPTY_KEYS = ["title", "author", "topics",
                   "meta", "target", "language", "cover", "language"]
 EMPTY_KEYS = []
 
 
-def main():
-    post = get_frontmatter()
+def single_entry(entry: Entry):
+    post = entry.post
     empty_keys = []
     non_empy = []
 
@@ -17,10 +17,16 @@ def main():
         if post.get(key, "") != "":
             non_empy.append(key)
     if len(empty_keys) == 0 and len(non_empy) == 0:
-        ok()
+        return ok(entry)
     error_msg = ""
     if len(empty_keys) > 0:
         error_msg += f"The following attributes are required: {', '.join(empty_keys)}\n"
     if len(non_empy) > 0:
         error_msg += f"The following attributes are required to be empty: {', '.join(non_empy)}\n"
-    return print_error(error_msg, True)
+    return print_error(entry, error_msg, True)
+
+
+def main():
+    for entry in get_frontmatter():
+        single_entry(entry)
+    return 0

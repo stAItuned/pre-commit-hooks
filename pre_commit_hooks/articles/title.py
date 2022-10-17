@@ -1,11 +1,17 @@
-import sys
-from ..utils import get_frontmatter, ok, print_error
+from ..utils import Entry, get_frontmatter, ok, print_error
 
 TITLE_MAX_LEN = 55
 
-def main():
-    post = get_frontmatter()
+
+def single_entry(entry: Entry):
+    post = entry.post
     title: str = post.get("title", "")
     if len(title) > TITLE_MAX_LEN:
-        return print_error(f"Title too long, {len(title)}/{TITLE_MAX_LEN} chars", True)
-    ok()
+        return print_error(entry, f"Title too long, {len(title)}/{TITLE_MAX_LEN} chars", True)
+    ok(entry)
+
+
+def main():
+    for entry in get_frontmatter():
+        single_entry(entry)
+    return 0
