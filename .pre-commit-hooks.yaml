@@ -144,3 +144,11 @@
     files: 'articles/.*/'
     types: [markdown]
     language: python
+
+-   id: article-slug
+    name: check article slug
+    description: article slug must be lowercase and not contain spaces
+    entry: article-slug
+    files: 'articles/.*/'
+    types: [markdown]
+    language: python
