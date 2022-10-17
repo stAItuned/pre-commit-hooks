@@ -7,7 +7,7 @@ import requests
 def single_entry(entry: Entry):
     post = entry.post
     date_str: str = post.get("date", None)
-    slug = path.basename(path.dirname(entry.filepath))
+    # slug = path.basename(path.dirname(entry.filepath))
     if date_str is None:
         return ok(entry)
     if isinstance(date_str, str):
@@ -18,11 +18,8 @@ def single_entry(entry: Entry):
         return print_error(entry, f"Unable to parse date ({date_str})", True)
     if parsed.year < 1970:
         return ok(entry)
-    resp = requests.get("https://staituned.com/sitemap.xml")
-    if(slug not in resp.text):
-        rewrite_frontmatter_property(post, "date", "")
-        return print_error(entry,
-                           f"(AUTOFIXED) Date must not be set if article is not published", exit=True)
+    if post.get("published", None) is None:
+        return print_error(entry, "Date attribute should not be set unless it is published")
     return ok(entry)
 
 
