@@ -53,7 +53,7 @@ def ok(entry: Entry = None, msg: str = ":white_check_mark:", exit: bool = True, 
         filepath = path.relpath(entry.filepath)
     if filepath is None:
         filepath = ""
-    print(f"[green]'{filepath}'... {msg}")
+    # print(f"[green]'{filepath}'... {msg}") # Commented out because pre-commit-ci troncates output
     if exit:
         # sys.exit(0)
         pass
