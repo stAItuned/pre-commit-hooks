@@ -1,6 +1,5 @@
 from ..utils import ok, print_error, filepaths
-import imageio
-from os import rename
+from PIL import Image
 
 
 def single_entry(filepath: str):
@@ -11,10 +10,20 @@ def single_entry(filepath: str):
         return print_error(None, msg="Rename from .jpeg to .jpg",
            exit=True, filepath=filepath)
 
-    img = imageio.imread(filepath.replace("propic.jpeg", "propic.jpg"))
-    if img.shape[0] != img.shape[1]:
-        return print_error(None,
-                           f"Team member propic is not a square ({img.shape[0]}x{img.shape[1]})", exit=True, filepath=filepath)
+    img = Image.open(filepath)
+    width, height = img.width, img.height
+
+    if width != height:
+        cropped_img = img.crop((0, 0, min(width, height), min(width, height)))
+        img.close()
+        ERROR_MSG = f"Team member propic is not a square ({width}x{height})"
+
+        try:
+            cropped_img.save(filepath)
+            ERROR_MSG = "(AUTOFIX) " + ERROR_MSG
+        except:
+            pass
+        print_error(None, ERROR_MSG, True, filepath)
     ok(filepath=filepath)
 
 
