@@ -1,7 +1,8 @@
+from typing import Literal
 from ..utils import Entry, get_frontmatter, ok, print_error
 
 
-def single_entry(entry: Entry):
+def single_entry(entry: Entry) -> Literal[1, 0]:
     VALID_TEAMS = ["Writers", "Tech", "Marketing"]
     post = entry.post
     teams: list[str] = post.get("team", None)
@@ -13,9 +14,10 @@ def single_entry(entry: Entry):
             mismatch.append(team)
     if(len(mismatch) > 0):
         return print_error(entry, f"Invalid team name(s): {','.join(mismatch)}", True)
-    ok(entry)
+    return ok(entry)
 
 def main():
+    errors = 0
     for entry in get_frontmatter():
-        single_entry(entry)
-    return 0
+        errors += single_entry(entry)
+    return errors

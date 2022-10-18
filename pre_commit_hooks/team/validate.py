@@ -1,9 +1,10 @@
+from typing import Literal
 from ..utils import Entry, get_frontmatter, ok, print_error
 
 NON_EMPTY_KEYS = ["name", "team", "title", "linkedin", "email", "description"]
 
 
-def single_entry(entry: Entry):
+def single_entry(entry: Entry) -> Literal[1, 0]:
     post = entry.post
     empty_keys = []
 
@@ -13,10 +14,11 @@ def single_entry(entry: Entry):
     if len(empty_keys) > 0:
         return print_error(entry,
                            f"The following attributes are required in a team card: {', '.join(empty_keys)}", True)
-    ok(entry)
+    return ok(entry)
 
 
 def main():
+    errors = 0
     for entry in get_frontmatter():
-        single_entry(entry)
-    return 0
+        errors += single_entry(entry)
+    return errors

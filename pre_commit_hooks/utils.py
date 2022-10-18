@@ -42,7 +42,8 @@ def print_error(entry: Entry = None, msg: str = ":cross_mark:", exit: bool = Tru
         filepath = ""
     print(f"[red]'{filepath}'... [bold]{msg}")
     if exit:
-        sys.exit(1)
+        # sys.exit(1)
+        pass
     return 1
 
 
@@ -57,6 +58,7 @@ def ok(entry: Entry = None, msg: str = ":white_check_mark:", exit: bool = True, 
     if exit:
         # sys.exit(0)
         pass
+    return 0
 
 
 def rewrite_frontmatter_property(entry: Entry, key: str, new_value: str):

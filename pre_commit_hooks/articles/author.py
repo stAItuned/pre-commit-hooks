@@ -1,3 +1,4 @@
+from typing import Literal
 from ..utils import Entry, get_frontmatter, ok, print_error, filepaths
 import glob
 from os import path
@@ -23,16 +24,17 @@ def get_all_authors() -> list[str]:
 author_names = get_all_authors()
 
 
-def single_entry(entry: Entry):
+def single_entry(entry: Entry) -> Literal[1, 0]:
     post = entry.post
     author: str = post.get("author", "")
     if author not in author_names:
         return print_error(entry,
                            f"Author must exists, {author} doesn't. (List of valid authors: {sorted(author_names)})", True)
-    ok(entry)
+    return ok(entry)
 
 
 def main():
+    errors = 0
     for entry in get_frontmatter():
-        single_entry(entry)
-    return 0
+        errors += single_entry(entry)
+    return errors
