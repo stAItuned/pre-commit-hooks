@@ -5,13 +5,11 @@ from os import rename
 
 def single_entry(filepath: str):
     if not filepath.endswith("propic.jpg") and not filepath.endswith("propic.jpeg"):
-        return print_error(None, f"Propic filename must be propic.jpg", True, filepath)
+        return print_error(None, f"Propic filename must be `propic.jpg`", True, filepath)
 
     if filepath.endswith("propic.jpeg"):
-        new_name = filepath.replace("propic.jpg")
-        rename(filepath, new_name)
-        ok(msg="(AUTOFIX) Propic renamed from .jpeg to .jpg",
-           exit=False, filepath=filepath)
+        return print_error(None, msg="Rename from .jpeg to .jpg",
+           exit=True, filepath=filepath)
 
     img = imageio.imread(filepath.replace("propic.jpeg", "propic.jpg"))
     if img.shape[0] != img.shape[1]:
