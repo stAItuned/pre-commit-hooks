@@ -1,7 +1,7 @@
 from typing import Literal
 from ..utils import Entry, get_frontmatter, ok, print_error, rewrite_frontmatter_property
 
-VALID_TARGETS = ["Newbie", "Expert"]
+VALID_TARGETS = ["Newbie", "Midway", "Expert"]
 ERROR_MSG = f"Target not valid, must be one of the following: {VALID_TARGETS}"
 
 
